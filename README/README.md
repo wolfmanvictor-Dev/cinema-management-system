@@ -218,7 +218,7 @@ GIFs:
 
 GitHub: https://github.com/wolfmanvictor-Dev
 
-LinkedIn: linkedin.com/in/victor-wolfman-dev
+LinkedIn: https://linkedin.com/in/victor-wolfman-dev
 
 ---
 
