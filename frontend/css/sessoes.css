@@ -1,0 +1,165 @@
+/* =============================================================
+   CINEVERSE — sessoes.css (Seleção de Sessão)
+   ============================================================= */
+
+.header { position: sticky; top: 0; z-index: 100; background: rgba(11,11,16,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1000px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: var(--font-display); font-size: 1.7rem; letter-spacing: 1px; color: var(--gold); text-decoration: none; }
+.nav { display: flex; gap: 28px; }
+.nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s; }
+.nav-link:hover { color: var(--gold); }
+
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 22px;
+  font-family: var(--font-body);
+}
+.btn-voltar:hover { color: var(--gold); }
+
+/* ---------- Barra do filme ---------- */
+.filme-barra {
+  display: flex;
+  gap: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 36px;
+}
+
+.filme-barra-poster {
+  width: 84px;
+  height: 126px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--bg-hover);
+  flex-shrink: 0;
+}
+
+.filme-barra-poster-placeholder {
+  width: 84px;
+  height: 126px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.filme-barra-info h1 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 8px;
+}
+
+.filme-barra-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.filme-barra-sinopse {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+/* ---------- Grupos por data ---------- */
+.grupo-data {
+  margin-bottom: 32px;
+}
+
+.grupo-data-titulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: capitalize;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sessoes-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 14px;
+}
+
+.sessao-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.2s ease;
+  text-align: left;
+}
+
+.sessao-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+}
+
+.sessao-horario {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.sessao-sala {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.sessao-preco {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-top: 8px;
+}
+
+.sessao-vagas {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.sessao-vagas.pouco { color: var(--red); }
+
+.sessao-card.esgotada {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.sessao-card.esgotada:hover { transform: none; border-color: var(--border); }
+
+.footer { text-align: center; padding: 28px; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
+
+@media (max-width: 560px) {
+  .filme-barra { flex-direction: column; align-items: flex-start; }
+}

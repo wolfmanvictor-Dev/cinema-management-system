@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Admin — CineVerse</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+
+  <main class="login-wrapper">
+    <section class="login-card" aria-labelledby="login-titulo">
+
+      <a href="index.html" class="logo">🎬 CineVerse</a>
+
+      <h1 id="login-titulo" class="login-titulo">Painel Administrativo</h1>
+      <p class="login-sub">Entre com suas credenciais de acesso</p>
+
+      <div id="erro-login" class="erro-msg" role="alert" hidden></div>
+
+      <form id="form-login" class="form-login" novalidate>
+        <div class="campo">
+          <label for="usuario">Login</label>
+          <input type="text" id="usuario" name="usuario" placeholder="admin" autocomplete="username" required/>
+        </div>
+
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="••••••••" autocomplete="current-password" required/>
+        </div>
+
+        <button type="submit" class="btn btn-dourado btn-login">Entrar</button>
+      </form>
+
+      <p class="login-dica">Acesso de demonstração: <strong>admin</strong> / <strong>admin123</strong></p>
+
+      <a href="index.html" class="link-voltar">← Voltar para o site</a>
+
+    </section>
+  </main>
+
+  <script src="js/utils.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

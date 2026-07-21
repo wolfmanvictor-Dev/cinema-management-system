@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escolha a Sessão — CineVerse</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/sessoes.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">🎬 CineVerse</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Filmes</a>
+        <a href="login.html" class="nav-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <button class="btn-voltar" onclick="window.location.href='index.html'">← Voltar para os filmes</button>
+
+    <div id="filme-barra" class="filme-barra">
+      <div class="loading-msg">Carregando filme...</div>
+    </div>
+
+    <h2 class="titulo-secao">Sessões Disponíveis</h2>
+
+    <div id="sessoes-container">
+      <div class="loading-msg">Carregando sessões...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 CineVerse — Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/sessoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineVerse — Ingressos Online</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">🎬 CineVerse</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">Filmes</a>
+        <a href="login.html" class="nav-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>A sua experiência<br/><span class="destaque">começa aqui.</span></h1>
+      <p>Escolha um filme, selecione a sessão e garanta seus assentos em poucos cliques.</p>
+    </div>
+  </section>
+
+  <!-- FILMES EM CARTAZ -->
+  <main class="main">
+    <div class="secao-topo">
+      <h2 class="titulo-secao">Em Cartaz</h2>
+      <select id="filtro-genero" class="filtro-genero" onchange="aplicarFiltro()">
+        <option value="">Todos os gêneros</option>
+      </select>
+    </div>
+
+    <div id="error-msg" class="error-msg" style="display:none;">
+      Não foi possível carregar os filmes. Verifique se o servidor está rodando em http://localhost:8080.
+    </div>
+
+    <div id="filmes-grid" class="filmes-grid">
+      <div class="loading-msg">Carregando filmes...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 CineVerse — Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel Admin — CineVerse</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/admin.css"/>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">🎬 CineVerse</div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" onclick="trocarAba('dashboard', this)">📊 Dashboard</button>
+      <button class="nav-item" onclick="trocarAba('filmes', this)">🎬 Filmes</button>
+      <button class="nav-item" onclick="trocarAba('salas', this)">🏛️ Salas</button>
+      <button class="nav-item" onclick="trocarAba('sessoes', this)">🗓️ Sessões</button>
+      <button class="nav-item" onclick="trocarAba('compras', this)">🎟️ Compras</button>
+    </nav>
+    <div class="sidebar-footer">
+      <span id="admin-nome">Administrador</span>
+      <button class="btn-logout" onclick="sair()">Sair</button>
+    </div>
+  </aside>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="content">
+
+    <!-- ======= ABA: DASHBOARD ======= -->
+    <section id="aba-dashboard" class="aba ativa">
+      <h1 class="page-title">Dashboard</h1>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">🎬</div>
+          <div class="stat-info"><span id="total-filmes" class="stat-num">—</span><span class="stat-label">Filmes em Cartaz</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🗓️</div>
+          <div class="stat-info"><span id="total-sessoes" class="stat-num">—</span><span class="stat-label">Sessões Cadastradas</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🎟️</div>
+          <div class="stat-info"><span id="total-compras" class="stat-num">—</span><span class="stat-label">Compras Realizadas</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💰</div>
+          <div class="stat-info"><span id="total-receita" class="stat-num">—</span><span class="stat-label">Receita Total</span></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💺</div>
+          <div class="stat-info"><span id="assentos-ocupados" class="stat-num">—</span><span class="stat-label">Assentos Ocupados</span></div>
+        </div>
+      </div>
+
+      <h2 class="section-title">Últimas Compras</h2>
+      <div class="table-wrapper">
+        <table class="tabela">
+          <thead><tr><th>Código</th><th>Comprador</th><th>Filme</th><th>Assentos</th><th>Total</th><th>Data</th></tr></thead>
+          <tbody id="tabela-ultimas-compras"><tr><td colspan="6" class="loading-cell">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======= ABA: FILMES ======= -->
+    <section id="aba-filmes" class="aba">
+      <div class="aba-header">
+        <h1 class="page-title">Filmes</h1>
+        <button class="btn btn-dourado" onclick="abrirModalFilme()">+ Novo Filme</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="tabela">
+          <thead><tr><th>ID</th><th>Título</th><th>Gênero</th><th>Duração</th><th>Classificação</th><th>Ações</th></tr></thead>
+          <tbody id="tabela-filmes"><tr><td colspan="6" class="loading-cell">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======= ABA: SALAS ======= -->
+    <section id="aba-salas" class="aba">
+      <div class="aba-header">
+        <h1 class="page-title">Salas</h1>
+        <button class="btn btn-dourado" onclick="abrirModalSala()">+ Nova Sala</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="tabela">
+          <thead><tr><th>ID</th><th>Nome</th><th>Tipo</th><th>Fileiras</th><th>Assentos/Fileira</th><th>Capacidade</th><th>Ações</th></tr></thead>
+          <tbody id="tabela-salas"><tr><td colspan="7" class="loading-cell">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======= ABA: SESSÕES ======= -->
+    <section id="aba-sessoes" class="aba">
+      <div class="aba-header">
+        <h1 class="page-title">Sessões</h1>
+        <button class="btn btn-dourado" onclick="abrirModalSessao()">+ Nova Sessão</button>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="tabela">
+          <thead><tr><th>Filme</th><th>Sala</th><th>Data</th><th>Horário</th><th>Preço</th><th>Ocupação</th><th>Ações</th></tr></thead>
+          <tbody id="tabela-sessoes"><tr><td colspan="7" class="loading-cell">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ======= ABA: COMPRAS ======= -->
+    <section id="aba-compras" class="aba">
+      <h1 class="page-title">Compras</h1>
+
+      <div class="table-wrapper">
+        <table class="tabela">
+          <thead><tr><th>Código</th><th>Comprador</th><th>E-mail</th><th>Filme</th><th>Sala</th><th>Assentos</th><th>Total</th><th>Método</th><th>Data</th></tr></thead>
+          <tbody id="tabela-compras"><tr><td colspan="9" class="loading-cell">Carregando...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div><!-- /content -->
+
+  <!-- MODAL: Filme -->
+  <div id="modal-filme" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-filme-titulo">Novo Filme</h2>
+        <button class="btn-fechar" onclick="fecharModalFilme()">✕</button>
+      </div>
+
+      <input type="hidden" id="filme-id"/>
+
+      <div class="campo"><label>Título</label><input type="text" id="filme-titulo" placeholder="Nome do filme"/></div>
+      <div class="campo-row">
+        <div class="campo"><label>Gênero</label><input type="text" id="filme-genero" placeholder="Ex: Ação, Drama, Comédia"/></div>
+        <div class="campo"><label>Classificação</label>
+          <select id="filme-classificacao">
+            <option value="Livre">Livre</option>
+            <option value="10">10 anos</option>
+            <option value="12">12 anos</option>
+            <option value="14">14 anos</option>
+            <option value="16">16 anos</option>
+            <option value="18">18 anos</option>
+          </select>
+        </div>
+      </div>
+      <div class="campo-row">
+        <div class="campo"><label>Duração (min)</label><input type="number" id="filme-duracao" placeholder="120" min="1"/></div>
+        <div class="campo"><label>URL do Pôster (opcional)</label><input type="text" id="filme-poster" placeholder="https://..."/></div>
+      </div>
+      <div class="campo"><label>Sinopse</label><textarea id="filme-sinopse" placeholder="Resumo curto do filme"></textarea></div>
+
+      <div class="modal-footer">
+        <button class="btn btn-fantasma" onclick="fecharModalFilme()">Cancelar</button>
+        <button class="btn btn-dourado" onclick="salvarFilme()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Sala -->
+  <div id="modal-sala" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-sala-titulo">Nova Sala</h2>
+        <button class="btn-fechar" onclick="fecharModalSala()">✕</button>
+      </div>
+
+      <input type="hidden" id="sala-id"/>
+
+      <div class="campo"><label>Nome da Sala</label><input type="text" id="sala-nome" placeholder="Ex: Sala 1"/></div>
+      <div class="campo">
+        <label>Tipo</label>
+        <select id="sala-tipo" onchange="sugerirLayoutSala()">
+          <option value="PEQUENA">Pequena</option>
+          <option value="MEDIA">Média</option>
+          <option value="GRANDE">Grande</option>
+          <option value="VIP">VIP</option>
+        </select>
+      </div>
+      <div class="campo-row">
+        <div class="campo"><label>Fileiras</label><input type="number" id="sala-fileiras" min="1" max="26"/></div>
+        <div class="campo"><label>Assentos por Fileira</label><input type="number" id="sala-assentos" min="1"/></div>
+      </div>
+      <p class="campo-ajuda">Capacidade total: <strong id="sala-capacidade-preview">—</strong> assentos. Ao trocar o tipo, um layout sugerido é preenchido automaticamente.</p>
+
+      <div class="modal-footer">
+        <button class="btn btn-fantasma" onclick="fecharModalSala()">Cancelar</button>
+        <button class="btn btn-dourado" onclick="salvarSala()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Sessão -->
+  <div id="modal-sessao" class="modal-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-sessao-titulo">Nova Sessão</h2>
+        <button class="btn-fechar" onclick="fecharModalSessao()">✕</button>
+      </div>
+
+      <input type="hidden" id="sessao-id"/>
+
+      <div class="campo"><label>Filme</label><select id="sessao-filme"><option value="">Selecione o filme...</option></select></div>
+      <div class="campo"><label>Sala</label><select id="sessao-sala"><option value="">Selecione a sala...</option></select></div>
+      <div class="campo-row">
+        <div class="campo"><label>Data</label><input type="date" id="sessao-data"/></div>
+        <div class="campo"><label>Horário</label><input type="time" id="sessao-horario"/></div>
+      </div>
+      <div class="campo"><label>Preço do Ingresso (R$)</label><input type="number" id="sessao-preco" min="0" step="0.01" placeholder="25.00"/></div>
+      <p class="campo-ajuda">Os assentos da sessão são gerados automaticamente com base no layout da sala escolhida.</p>
+
+      <div class="modal-footer">
+        <button class="btn btn-fantasma" onclick="fecharModalSessao()">Cancelar</button>
+        <button class="btn btn-dourado" onclick="salvarSessao()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

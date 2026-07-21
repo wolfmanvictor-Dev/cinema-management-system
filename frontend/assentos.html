@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escolha seus Assentos — CineVerse</title>
+  <link rel="stylesheet" href="css/base.css"/>
+  <link rel="stylesheet" href="css/assentos.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">🎬 CineVerse</a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Filmes</a>
+        <a href="login.html" class="nav-link">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <button class="btn-voltar" onclick="window.location.href='sessoes.html'">← Escolher outra sessão</button>
+
+    <div id="filme-info" class="filme-info-bar">
+      <h1 id="filme-titulo">Carregando...</h1>
+      <span id="filme-sessao" class="sessao-tag"></span>
+    </div>
+
+    <div class="tela-cinema">
+      <div class="tela-label">TELA</div>
+    </div>
+
+    <div class="legenda">
+      <div class="legenda-item"><span class="assento-demo livre"></span> Disponível</div>
+      <div class="legenda-item"><span class="assento-demo vip"></span> VIP</div>
+      <div class="legenda-item"><span class="assento-demo selecionado"></span> Selecionado</div>
+      <div class="legenda-item"><span class="assento-demo ocupado"></span> Ocupado</div>
+    </div>
+
+    <div id="assentos-container" class="assentos-container">
+      <div class="loading-msg">Carregando assentos...</div>
+    </div>
+
+    <div class="resumo-bar">
+      <div class="resumo-info">
+        <span>Selecionados: <strong id="qtd-selecionados">0</strong></span>
+        <span>Valor do ingresso: <strong id="valor-unitario">R$ 0,00</strong></span>
+        <span>Total: <strong id="total-preco">R$ 0,00</strong></span>
+      </div>
+      <button id="btn-continuar" class="btn btn-dourado" onclick="irParaPagamento()" disabled>
+        Continuar para Pagamento →
+      </button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 CineVerse — Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="js/utils.js"></script>
+  <script src="js/assentos.js"></script>
+</body>
+</html>

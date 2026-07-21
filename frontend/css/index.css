@@ -1,0 +1,258 @@
+/* =============================================================
+   CINEVERSE — index.css (Tela Inicial)
+   ============================================================= */
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 11, 16, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.nav { display: flex; align-items: center; gap: 28px; }
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--gold); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 96px 24px 72px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(242, 183, 5, 0.10), transparent 70%),
+    linear-gradient(180deg, #0b0b10 0%, #121218 100%);
+}
+
+/* Faixa de "luzes de marquise" decorativa */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, var(--gold) 0 10px, transparent 10px 22px);
+  opacity: 0.55;
+}
+
+.hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.hero-content .destaque { color: var(--gold); }
+
+.hero-content p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ---------- Main ---------- */
+.main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+.secao-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.secao-topo .titulo-secao { margin-bottom: 0; }
+
+.filtro-genero {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ---------- Mensagem de erro da API ---------- */
+.error-msg {
+  background: var(--red-soft);
+  border: 1px solid var(--red);
+  color: var(--red);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Grid de Filmes ---------- */
+.filmes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 26px;
+}
+
+/* Card em formato de ingresso: poster + canhoto com furos de perfuração */
+.filme-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.filme-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.filme-poster-wrap {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  background: var(--bg-hover);
+}
+
+.filme-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.poster-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  background: linear-gradient(135deg, #1a1a24, #23232f);
+}
+
+.filme-classificacao {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(11, 11, 16, 0.85);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Canhoto do ingresso — linha perfurada com "furos" simulados */
+.filme-canhoto {
+  position: relative;
+  border-top: 2px dashed var(--border);
+  padding-top: 14px;
+}
+
+.filme-canhoto::before,
+.filme-canhoto::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  width: 16px;
+  height: 16px;
+  background: var(--bg);
+  border-radius: 50%;
+}
+.filme-canhoto::before { left: -8px; }
+.filme-canhoto::after { right: -8px; }
+
+.filme-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.filme-titulo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+  line-height: 1.15;
+}
+
+.filme-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.filme-meta span { display: inline-flex; align-items: center; gap: 4px; }
+
+.filme-sinopse {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-ver-sessoes {
+  width: 100%;
+  text-align: center;
+  margin-top: auto;
+}
+
+/* ---------- Loading ---------- */
+.loading-msg { grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 60px 0; }
+
+/* ---------- Footer ---------- */
+.footer { text-align: center; padding: 28px; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 600px) {
+  .filmes-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .hero { padding: 56px 16px 40px; }
+  .filme-titulo { font-size: 1.05rem; }
+}

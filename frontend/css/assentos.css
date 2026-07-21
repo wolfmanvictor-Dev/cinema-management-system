@@ -1,0 +1,206 @@
+/* =============================================================
+   CINEVERSE — assentos.css (Seleção de Assentos)
+   ============================================================= */
+
+.header { position: sticky; top: 0; z-index: 100; background: rgba(11,11,16,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+.header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: var(--font-display); font-size: 1.7rem; letter-spacing: 1px; color: var(--gold); text-decoration: none; }
+.nav { display: flex; gap: 28px; }
+.nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.nav-link:hover { color: var(--gold); }
+
+.main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 120px;
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-bottom: 18px;
+  font-family: var(--font-body);
+}
+.btn-voltar:hover { color: var(--gold); }
+
+/* ---------- Barra do Filme ---------- */
+.filme-info-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.filme-info-bar h1 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.3px;
+}
+
+.sessao-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: var(--text-muted);
+}
+
+/* ---------- Tela ---------- */
+.tela-cinema {
+  width: 72%;
+  margin: 0 auto 8px;
+  background: linear-gradient(to bottom, rgba(242, 183, 5, 0.22), transparent);
+  border-top: 3px solid var(--gold);
+  border-radius: 0 0 55% 55% / 0 0 100% 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.tela-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--gold);
+}
+
+/* ---------- Legenda ---------- */
+.legenda {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin: 26px 0;
+}
+
+.legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.assento-demo {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px 5px 2px 2px;
+  border: 2px solid;
+  display: inline-block;
+}
+
+.assento-demo.livre       { background: rgba(46,204,113,0.14); border-color: var(--green); }
+.assento-demo.selecionado { background: var(--gold); border-color: var(--gold-hover); }
+.assento-demo.ocupado     { background: var(--bg-hover); border-color: #44445a; }
+.assento-demo.vip         { background: var(--gold-soft); border-color: var(--gold); }
+
+/* ---------- Container dos Assentos ---------- */
+.assentos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.fileira {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fileira-label {
+  width: 22px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.assento {
+  width: 34px;
+  height: 34px;
+  border-radius: 6px 6px 3px 3px;
+  border: 2px solid;
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, filter 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+}
+
+.assento:hover:not(.ocupado) { transform: scale(1.12); filter: brightness(1.15); }
+
+.assento.livre {
+  background: rgba(46, 204, 113, 0.10);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.assento.livre.vip {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.assento.selecionado {
+  background: var(--gold);
+  border-color: var(--gold-hover);
+  color: #171204;
+}
+
+.assento.ocupado {
+  background: var(--bg-hover);
+  border-color: #33333f;
+  color: #55555f;
+  cursor: not-allowed;
+}
+
+.corredor { width: 18px; }
+
+.loading-msg { text-align: center; color: var(--text-muted); padding: 60px 0; }
+
+/* ---------- Resumo (fixo no rodapé) ---------- */
+.resumo-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 50;
+}
+
+.resumo-info {
+  display: flex;
+  gap: 24px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.resumo-info strong { color: var(--text-primary); }
+
+.footer { text-align: center; padding: 28px; color: var(--text-muted); font-size: 0.82rem; border-top: 1px solid var(--border); }
+
+@media (max-width: 600px) {
+  .assento { width: 27px; height: 27px; font-size: 0.6rem; }
+  .resumo-bar { flex-direction: column; gap: 10px; padding: 12px 16px; }
+  .resumo-bar .btn { width: 100%; }
+}
