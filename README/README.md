@@ -216,9 +216,9 @@ GIFs:
 
 **Victor Hugo Dainez Wolfman**
 
-GitHub: https://github.com/SEU-USUARIO
+GitHub: https://github.com/wolfmanvictor-Dev
 
-LinkedIn: https://linkedin.com/in/SEU-PERFIL
+LinkedIn: linkedin.com/in/victor-wolfman-dev
 
 ---
 
